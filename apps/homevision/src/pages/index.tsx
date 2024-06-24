@@ -20,8 +20,6 @@ export const getStaticProps = async () => {
 
   const res = await fetch('https://staging.homevision.co/api_project/houses?per_page=12&page=1')
 
-  console.log(res.ok)
-
   if (!res.ok) {
     return {
       props: {

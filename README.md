@@ -41,7 +41,8 @@ Run `npx nx build homevision` to build the application.
 
 ### Implementation
 * Since we're consuming the data from a flaky API, it's important to not break the UX
-* For that, I've added a "retry" method in case of failure (max. 5 retries)
+* For that reason, I've decided to go with a SSG strategy and fetch the first 12 elements from the API at deploy time, meaning that those first 12 elements will always be present on the page no matter what
+* For the rest of the elements, there's a CSR strategy, I've added a "retry" method in case of failure (max. 5 retries)
 * In the case of failure the app will try to fetch the data again, until the 5th time, if it's still failing, then a button with the label "Load more houses" will be presented to the user
 
 ### Improvements
