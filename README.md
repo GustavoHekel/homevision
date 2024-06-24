@@ -23,6 +23,12 @@ Run `npx nx dev homevision` to start the development server.
 
 Run `npx nx storybook ui` to start storybook.
 
+
+### Run unit tests
+Run `npx nx test ui` to run tests for UI library.
+
+Run `npx nx test homevision` to run tests for Web app.
+
 ### Explore the project graph
 
 Run `npx nx graph` to show the graph of the workspace.
@@ -43,5 +49,12 @@ Run `npx nx build homevision` to build the application.
 * For large lists I'd try to use a virtualization approach (just keeping a set of records big enough to populate the viewport) as it will improve performance when loading hundreds of lines in the DOM, this might be more suitable for tables and grids, but in catalogs It'd be better to have a pagination method, as it'll make it easier to narrow results and bookmark them
 * Some unit tests are missing due to the complexity of the components, in those cases I think it's better to implement integration tests
 
+### Storybook
+* I've built a small design system with Storybook on top, so you can play with. It allows you to change some settings on the "Button" component such as type, color, label. In a production application I'd spend more time in adding more controls, so it's useful to different stakeholders (not just the dev team) by allowing them to have an insight of what we're capable of building with the UI components we've already created
+* It can also be used to demo very small pocs (maybe a user profile page), it's just putting the pieces together (just like lego bricks)
+
+### Monorepo
+* I've decided to use NX for this challenge since Jerry mentioned that the Monorepo architecture is what you are currently using in HomeVision, so I just wanted to show you what NX is capable of and how it might be used in a production ecosystem
+
 ### Time spent
-* ~9hs
+* ~10hs
