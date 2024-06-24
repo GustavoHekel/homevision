@@ -10,15 +10,15 @@ import { useAppSelector } from '../../hooks';
 import { Layouts } from '../../constants/layouts';
 import Details from '../Details/Details';
 
-const Catalog: FC = () => {
+const Catalog: FC<{ ssHouses: House[] }> = ({ ssHouses }) => {
 
   const { viewMode } = useAppSelector(state => state.layouts);
 
   const [query, setQuery] = useState({
-    page: 1,
+    page: ssHouses.length ? 2 : 1,
     per_page: 12
   });
-  const [houses, setHouses] = useState<House[]>([]);
+  const [houses, setHouses] = useState<House[]>(ssHouses);
   const [getHouses, { isError, isFetching }] = useLazyGetHousesQuery();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const Catalog: FC = () => {
       }
 
     });
-  }, [getHouses, query, query.page]);
+  }, [getHouses, query, query.page, ssHouses.length]);
 
   const loadMoreHouses = () => {
     setQuery({
@@ -54,7 +54,7 @@ const Catalog: FC = () => {
         {viewMode === Layouts.GRID ? <Grid houses={houses} /> : <List houses={houses} />}
       </InfiniteScroll>
       {isFetching && <LinearProgress color={'secondary'} />}
-      <Details/>
+      <Details />
       {isError && <Button label={'Load more houses'} onClick={loadMoreHouses} />}
     </>
 
