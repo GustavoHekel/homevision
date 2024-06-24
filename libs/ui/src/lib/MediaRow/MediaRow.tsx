@@ -25,7 +25,8 @@ const MediaRow: FC<MediaRowInterface> = ({ actions, content, image }) => {
       sx={{
         flexGrow: 1,
         maxWidth: '200px',
-        textAlign: 'center'
+        textAlign: 'center',
+        marginRight: 1
       }}
     >
       <img src={image.src} alt={image.alt}
@@ -38,18 +39,35 @@ const MediaRow: FC<MediaRowInterface> = ({ actions, content, image }) => {
     </Box>
     <Box
       sx={{
-        flexGrow: 2
+        width: '100%',
+        display: {
+          xs: 'flex'
+        },
+        flexDirection: {
+          xs: 'column',
+          sm: 'row'
+        },
+        alignItems: {
+          sm: 'center'
+        },
+        justifyContent: {
+          sm: 'space-between'
+        }
       }}
     >
-      {content}
-    </Box>
-    <Box
-      sx={{
-        flexGrow: 1,
-        textAlign: 'right'
-      }}
-    >
-      {actions}
+      <Box
+        sx={{
+          maxWidth: {
+            xs: '190px',
+            sm: '300px'
+          }
+        }}
+      >
+        {content}
+      </Box>
+      <Box>
+        {actions}
+      </Box>
     </Box>
   </Box>;
 };

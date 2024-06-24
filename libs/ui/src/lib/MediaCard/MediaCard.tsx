@@ -16,7 +16,6 @@ const MediaCard: FC<MediaCardInterface> = ({ image, content, actions }) => {
       sx={{
         border: 'solid 1px silver',
         borderRadius: '8px',
-        width: '280px',
         padding: '8px',
         boxShadow: '2px 2px 8px grey'
       }}

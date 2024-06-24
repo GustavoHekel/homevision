@@ -19,7 +19,7 @@ const Catalog: FC = () => {
     per_page: 12
   });
   const [houses, setHouses] = useState<House[]>([]);
-  const [getHouses, { isError }] = useLazyGetHousesQuery();
+  const [getHouses, { isError, isFetching }] = useLazyGetHousesQuery();
 
   useEffect(() => {
     getHouses({
@@ -47,11 +47,13 @@ const Catalog: FC = () => {
       <InfiniteScroll
         next={loadMoreHouses}
         hasMore={query.page <= 100}
-        loader={!isError && <LinearProgress color={'secondary'} />}
+        loader={<></>}
+        // loader={!isError && <LinearProgress color={'secondary'} />}
         dataLength={houses.length}
       >
         {viewMode === Layouts.GRID ? <Grid houses={houses} /> : <List houses={houses} />}
       </InfiniteScroll>
+      {isFetching && <LinearProgress color={'secondary'} />}
       <Details/>
       {isError && <Button label={'Load more houses'} onClick={loadMoreHouses} />}
     </>
