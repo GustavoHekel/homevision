@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MediaCard from './MediaCard';
 
-describe('MediaCard Component', () => {
+describe('MediaCard', () => {
   test('renders image with correct src and alt', () => {
     const image = { src: 'test-image.jpg', alt: 'Test Image' };
     render(<MediaCard image={image} content={<div>Test Content</div>} actions={<div>Test Actions</div>} />);
