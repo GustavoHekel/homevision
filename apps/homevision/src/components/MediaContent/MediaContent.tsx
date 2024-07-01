@@ -17,7 +17,7 @@ const MediaContent: FC<MediaCardContentType> = ({ address, homeowner, price }) =
     }}
   >
     <Typography variant={"h5"} fontWeight={600}>{formattedPrice}</Typography>
-    <Typography variant={"h7"} noWrap>{address}</Typography>
+    <Typography variant={"body1"} noWrap>{address}</Typography>
     <Typography variant={"caption"}>Homeowner: {homeowner}</Typography>
   </Box>;
 };
